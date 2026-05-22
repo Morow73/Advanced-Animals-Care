@@ -1,0 +1,7 @@
+{
+    "IGUI_AAC_Animal_CanBePet": "Można pogłaskać",
+    "IGUI_AAC_Animal_CannotBePet": "Nie można pogłaskać",
+    "IGUI_AAC_Base_Animal_Color": "Podstawowy kolor podświetlenia.",
+    "IGUI_AAC_Dead_Animal_Color": "Kolor podświetlenia martwych zwierząt.",
+    "IGUI_AAC_Warning_Animal_Color": "Kolor podświetlenia dla zwierząt wymagających uwagi (stres, zdrowie...)."
+}

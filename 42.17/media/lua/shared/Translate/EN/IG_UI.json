@@ -1,0 +1,7 @@
+{
+    "IGUI_AAC_Animal_CanBePet": "Can be petted",
+    "IGUI_AAC_Animal_CannotBePet": "Cannot be petted",
+    "IGUI_AAC_Base_Animal_Color": "Base highlight color.",
+    "IGUI_AAC_Dead_Animal_Color": "Dead animal highlight color.",
+    "IGUI_AAC_Warning_Animal_Color": "Attention highlight color for animals needing care (stress, health...)."
+}

@@ -1,0 +1,7 @@
+{
+    "IGUI_AAC_Animal_CanBePet": "Pode ser acariciado",
+    "IGUI_AAC_Animal_CannotBePet": "Não pode ser acariciado",
+    "IGUI_AAC_Base_Animal_Color": "Cor de destaque básica.",
+    "IGUI_AAC_Dead_Animal_Color": "Cor de destaque para animais mortos.",
+    "IGUI_AAC_Warning_Animal_Color": "Cor de destaque para animais que precisam de atenção (estresse, saúde...)."
+}

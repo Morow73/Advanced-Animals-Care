@@ -1,0 +1,7 @@
+{
+    "IGUI_AAC_Animal_CanBePet": "يمكن تدليله",
+    "IGUI_AAC_Animal_CannotBePet": "لا يمكن تدليله",
+    "IGUI_AAC_Base_Animal_Color": "لون التمييز الأساسي.",
+    "IGUI_AAC_Dead_Animal_Color": "لون تمييز الحيوان الميت.",
+    "IGUI_AAC_Warning_Animal_Color": "لون التمييز للحيوانات التي تحتاج انتباهًا (الإجهاد، الصحة...)."
+}

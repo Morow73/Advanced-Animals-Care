@@ -1,0 +1,7 @@
+{
+    "IGUI_AAC_Animal_CanBePet": "Voidaan silittää",
+    "IGUI_AAC_Animal_CannotBePet": "Ei voida silittää",
+    "IGUI_AAC_Base_Animal_Color": "Peruskorostuksen väri.",
+    "IGUI_AAC_Dead_Animal_Color": "Kuolleiden eläinten korostusväri.",
+    "IGUI_AAC_Warning_Animal_Color": "Korostuksen väri eläimille, jotka tarvitsevat huomiota (stressi, terveys...)."
+}

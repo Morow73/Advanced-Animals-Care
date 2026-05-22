@@ -1,0 +1,7 @@
+{
+    "IGUI_AAC_Animal_CanBePet": "Okşanabilir",
+    "IGUI_AAC_Animal_CannotBePet": "Okşanamaz",
+    "IGUI_AAC_Base_Animal_Color": "Temel vurgulama rengi.",
+    "IGUI_AAC_Dead_Animal_Color": "Ölü hayvan vurgulama rengi.",
+    "IGUI_AAC_Warning_Animal_Color": "İlgi gerektiren hayvanlar için vurgulama rengi (stres, sağlık...)."
+}

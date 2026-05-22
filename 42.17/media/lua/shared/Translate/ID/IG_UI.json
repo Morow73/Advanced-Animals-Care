@@ -1,0 +1,7 @@
+{
+    "IGUI_AAC_Animal_CanBePet": "Bisa dibelai",
+    "IGUI_AAC_Animal_CannotBePet": "Tidak bisa dibelai",
+    "IGUI_AAC_Base_Animal_Color": "Warna sorotan dasar.",
+    "IGUI_AAC_Dead_Animal_Color": "Warna sorotan hewan mati.",
+    "IGUI_AAC_Warning_Animal_Color": "Warna sorotan untuk hewan yang membutuhkan perhatian (stres, kesehatan...)."
+}

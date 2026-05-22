@@ -1,0 +1,7 @@
+{
+    "IGUI_AAC_Animal_CanBePet": "Kan geaaid worden",
+    "IGUI_AAC_Animal_CannotBePet": "Kan niet geaaid worden",
+    "IGUI_AAC_Base_Animal_Color": "Basis highlight-kleur.",
+    "IGUI_AAC_Dead_Animal_Color": "Highlight-kleur voor dode dieren.",
+    "IGUI_AAC_Warning_Animal_Color": "Highlight-kleur voor dieren die aandacht nodig hebben (stress, gezondheid...)."
+}

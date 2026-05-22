@@ -1,0 +1,7 @@
+{
+    "IGUI_AAC_Animal_CanBePet": "Può essere accarezzato",
+    "IGUI_AAC_Animal_CannotBePet": "Non può essere accarezzato",
+    "IGUI_AAC_Base_Animal_Color": "Colore evidenziatore di base.",
+    "IGUI_AAC_Dead_Animal_Color": "Colore evidenziatore per animali morti.",
+    "IGUI_AAC_Warning_Animal_Color": "Colore evidenziatore per animali che necessitano attenzione (stress, salute...)."
+}

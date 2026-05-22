@@ -1,0 +1,7 @@
+{
+    "IGUI_AAC_Animal_CanBePet": "Lze pohladit",
+    "IGUI_AAC_Animal_CannotBePet": "Nelze pohladit",
+    "IGUI_AAC_Base_Animal_Color": "Základní barva zvýraznění.",
+    "IGUI_AAC_Dead_Animal_Color": "Barva zvýraznění mrtvých zvířat.",
+    "IGUI_AAC_Warning_Animal_Color": "Barva zvýraznění pro zvířata vyžadující pozornost (stres, zdraví...)."
+}

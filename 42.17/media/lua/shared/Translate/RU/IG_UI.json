@@ -1,0 +1,7 @@
+{
+    "IGUI_AAC_Animal_CanBePet": "Можно погладить",
+    "IGUI_AAC_Animal_CannotBePet": "Нельзя погладить",
+    "IGUI_AAC_Base_Animal_Color": "Базовый цвет подсветки.",
+    "IGUI_AAC_Dead_Animal_Color": "Цвет подсветки для мертвых животных.",
+    "IGUI_AAC_Warning_Animal_Color": "Цвет подсветки для животных, требующих внимания (стресс, здоровье...)."
+}

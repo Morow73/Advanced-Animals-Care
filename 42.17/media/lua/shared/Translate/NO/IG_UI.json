@@ -1,0 +1,7 @@
+{
+    "IGUI_AAC_Animal_CanBePet": "Kan bli klappet",
+    "IGUI_AAC_Animal_CannotBePet": "Kan ikke bli klappet",
+    "IGUI_AAC_Base_Animal_Color": "Grunnleggende markeringsfarge.",
+    "IGUI_AAC_Dead_Animal_Color": "Markeringsfarge for døde dyr.",
+    "IGUI_AAC_Warning_Animal_Color": "Markeringsfarge for dyr som trenger oppmerksomhet (stress, helse...)."
+}

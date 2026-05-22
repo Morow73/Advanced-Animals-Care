@@ -1,0 +1,7 @@
+{
+    "IGUI_AAC_Animal_CanBePet": "Maaaring hipuin",
+    "IGUI_AAC_Animal_CannotBePet": "Hindi maaaring hipuin",
+    "IGUI_AAC_Base_Animal_Color": "Pangunahing kulay ng highlight.",
+    "IGUI_AAC_Dead_Animal_Color": "Kulay ng highlight para sa patay na hayop.",
+    "IGUI_AAC_Warning_Animal_Color": "Kulay ng highlight para sa mga hayop na nangangailangan ng pansin (stress, kalusugan...)."
+}

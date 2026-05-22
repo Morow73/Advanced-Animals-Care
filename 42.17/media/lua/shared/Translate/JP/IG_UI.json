@@ -1,0 +1,7 @@
+{
+    "IGUI_AAC_Animal_CanBePet": "なでることができます",
+    "IGUI_AAC_Animal_CannotBePet": "なでることはできません",
+    "IGUI_AAC_Base_Animal_Color": "基本ハイライト色。",
+    "IGUI_AAC_Dead_Animal_Color": "死んだ動物のハイライト色。",
+    "IGUI_AAC_Warning_Animal_Color": "注意が必要な動物のハイライト色（ストレス、健康...）。"
+}

@@ -1,0 +1,7 @@
+{
+    "IGUI_AAC_Animal_CanBePet": "Non caliné",
+    "IGUI_AAC_Animal_CannotBePet": "Caliné",
+    "IGUI_AAC_Base_Animal_Color": "Couleur du highlight de base.",
+    "IGUI_AAC_Dead_Animal_Color": "Couleur du highlight des animaux morts.",
+    "IGUI_AAC_Warning_Animal_Color": "Couleur du highlight des animaux nécessitant de l'attention (stress, santé ...)."
+}

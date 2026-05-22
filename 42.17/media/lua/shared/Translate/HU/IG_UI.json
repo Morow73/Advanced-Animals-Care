@@ -1,0 +1,7 @@
+{
+    "IGUI_AAC_Animal_CanBePet": "Meg lehet simogatni",
+    "IGUI_AAC_Animal_CannotBePet": "Nem lehet simogatni",
+    "IGUI_AAC_Base_Animal_Color": "Alapkiemelés színe.",
+    "IGUI_AAC_Dead_Animal_Color": "Halott állat kiemelésének színe.",
+    "IGUI_AAC_Warning_Animal_Color": "Figyelmet igénylő állatok kiemelésének színe (stressz, egészség...)."
+}

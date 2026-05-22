@@ -1,0 +1,7 @@
+{
+    "IGUI_AAC_Animal_CanBePet": "สามารถลูบได้",
+    "IGUI_AAC_Animal_CannotBePet": "ไม่สามารถลูบได้",
+    "IGUI_AAC_Base_Animal_Color": "สีไฮไลต์พื้นฐาน",
+    "IGUI_AAC_Dead_Animal_Color": "สีไฮไลต์สำหรับสัตว์ที่ตายแล้ว",
+    "IGUI_AAC_Warning_Animal_Color": "สีไฮไลต์สำหรับสัตว์ที่ต้องการความเอาใจใส่ (ความเครียด, สุขภาพ...)"
+}

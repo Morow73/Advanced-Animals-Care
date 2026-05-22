@@ -1,0 +1,7 @@
+{
+    "IGUI_AAC_Animal_CanBePet": "可撫摸",
+    "IGUI_AAC_Animal_CannotBePet": "無法撫摸",
+    "IGUI_AAC_Base_Animal_Color": "基本高亮顏色。",
+    "IGUI_AAC_Dead_Animal_Color": "死亡動物的高亮顏色。",
+    "IGUI_AAC_Warning_Animal_Color": "用於需要關注的動物（壓力、健康...）的高亮顏色。"
+}

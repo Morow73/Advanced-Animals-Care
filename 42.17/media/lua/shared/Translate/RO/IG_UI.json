@@ -1,0 +1,7 @@
+{
+    "IGUI_AAC_Animal_CanBePet": "Poate fi mângâiat",
+    "IGUI_AAC_Animal_CannotBePet": "Nu poate fi mângâiat",
+    "IGUI_AAC_Base_Animal_Color": "Culoare evidențiere de bază.",
+    "IGUI_AAC_Dead_Animal_Color": "Culoare evidențiere pentru animale moarte.",
+    "IGUI_AAC_Warning_Animal_Color": "Culoare evidențiere pentru animalele care necesită atenție (stres, sănătate...)."
+}

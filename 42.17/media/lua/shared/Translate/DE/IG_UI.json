@@ -1,0 +1,7 @@
+{
+    "IGUI_AAC_Animal_CanBePet": "Kann gestreichelt werden",
+    "IGUI_AAC_Animal_CannotBePet": "Kann nicht gestreichelt werden",
+    "IGUI_AAC_Base_Animal_Color": "Basis-Highlight-Farbe.",
+    "IGUI_AAC_Dead_Animal_Color": "Highlight-Farbe für tote Tiere.",
+    "IGUI_AAC_Warning_Animal_Color": "Highlight-Farbe für Tiere, die Aufmerksamkeit benötigen (Stress, Gesundheit...)."
+}
