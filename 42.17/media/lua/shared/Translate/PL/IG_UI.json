@@ -3,5 +3,14 @@
     "IGUI_AAC_Animal_CannotBePet": "Nie można pogłaskać",
     "IGUI_AAC_Base_Animal_Color": "Podstawowy kolor podświetlenia.",
     "IGUI_AAC_Dead_Animal_Color": "Kolor podświetlenia martwych zwierząt.",
-    "IGUI_AAC_Warning_Animal_Color": "Kolor podświetlenia dla zwierząt wymagających uwagi (stres, zdrowie...)."
+    "IGUI_AAC_Warning_Animal_Color": "Kolor podświetlenia dla zwierząt wymagających uwagi (stres, zdrowie...).",
+    "IGUI_AAC_Animal_Stress": "Stres",
+    "IGUI_AAC_Animal_Health": "Zdrowie",
+    "IGUI_AAC_Animal_Pregnant": "Ciąża",
+    "IGUI_AAC_Animal_Milk": "Mleko",
+    "IGUI_AAC_Show_Pregnancy_Stage": "Pokaż etap ciąży",
+    "IGUI_AAC_Show_Milk_Stage": "Pokaż etap mleka",
+    "IGUI_AAC_Show_Mating_Season": "Pokaż sezon rozrodczy",
+    "IGUI_AAC_Show_Impregnation_Readiness": "Pokaż gotowość do zapłodnienia",
+    "IGUI_AAC_Choice_Status_Show": "Włącz, aby wyświetlić statusy. Domyślnie wyłączone, zależy od poziomu."
 }

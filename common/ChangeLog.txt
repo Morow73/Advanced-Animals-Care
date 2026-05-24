@@ -1,0 +1,8 @@
+﻿[24/05/2026]
+- Fix the crash when a dead animal was in the area.
+- Fix the highlight of dead animals in the area that is not working.
+- Change in the display of statuses.
+- Addition of the display of fertilization readiness status in males and mating/gestation status in females.
+- Adding checkbox options to bypass level restrictions regarding pregnancy, milk, breeding season, and fertilization capacity.
+- Adding the context menu for dead animals directly from the Ranch panel
+[ ------ ]

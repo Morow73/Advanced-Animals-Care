@@ -3,5 +3,14 @@
     "IGUI_AAC_Animal_CannotBePet": "Non può essere accarezzato",
     "IGUI_AAC_Base_Animal_Color": "Colore evidenziatore di base.",
     "IGUI_AAC_Dead_Animal_Color": "Colore evidenziatore per animali morti.",
-    "IGUI_AAC_Warning_Animal_Color": "Colore evidenziatore per animali che necessitano attenzione (stress, salute...)."
+    "IGUI_AAC_Warning_Animal_Color": "Colore evidenziatore per animali che necessitano attenzione (stress, salute...).",
+    "IGUI_AAC_Animal_Stress": "Stress",
+    "IGUI_AAC_Animal_Health": "Salute",
+    "IGUI_AAC_Animal_Pregnant": "Incinta",
+    "IGUI_AAC_Animal_Milk": "Latte",
+    "IGUI_AAC_Show_Pregnancy_Stage": "Mostra lo stadio di gravidanza",
+    "IGUI_AAC_Show_Milk_Stage": "Mostra lo stadio del latte",
+    "IGUI_AAC_Show_Mating_Season": "Mostra la stagione degli amori",
+    "IGUI_AAC_Show_Impregnation_Readiness": "Mostra la preparazione all’ovulazione",
+    "IGUI_AAC_Choice_Status_Show": "Abilita per visualizzare gli stati. Disabilitato per impostazione predefinita, dipende dal livello."
 }

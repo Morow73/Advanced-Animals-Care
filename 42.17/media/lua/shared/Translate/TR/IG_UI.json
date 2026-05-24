@@ -3,5 +3,14 @@
     "IGUI_AAC_Animal_CannotBePet": "Okşanamaz",
     "IGUI_AAC_Base_Animal_Color": "Temel vurgulama rengi.",
     "IGUI_AAC_Dead_Animal_Color": "Ölü hayvan vurgulama rengi.",
-    "IGUI_AAC_Warning_Animal_Color": "İlgi gerektiren hayvanlar için vurgulama rengi (stres, sağlık...)."
+    "IGUI_AAC_Warning_Animal_Color": "İlgi gerektiren hayvanlar için vurgulama rengi (stres, sağlık...).",
+    "IGUI_AAC_Animal_Stress": "Stres",
+    "IGUI_AAC_Animal_Health": "Sağlık",
+    "IGUI_AAC_Animal_Pregnant": "Hamile",
+    "IGUI_AAC_Animal_Milk": "Süt",
+    "IGUI_AAC_Show_Pregnancy_Stage": "Gebelik aşamasını göster",
+    "IGUI_AAC_Show_Milk_Stage": "Süt aşamasını göster",
+    "IGUI_AAC_Show_Mating_Season": "Çiftleşme sezonunu göster",
+    "IGUI_AAC_Show_Impregnation_Readiness": "Dölleme hazırılığını göster",
+    "IGUI_AAC_Choice_Status_Show": "Durumları göstermek için etkinleştir. Varsayılan olarak devre dışı, seviyeye bağlı."
 }

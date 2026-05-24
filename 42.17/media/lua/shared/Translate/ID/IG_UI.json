@@ -3,5 +3,14 @@
     "IGUI_AAC_Animal_CannotBePet": "Tidak bisa dibelai",
     "IGUI_AAC_Base_Animal_Color": "Warna sorotan dasar.",
     "IGUI_AAC_Dead_Animal_Color": "Warna sorotan hewan mati.",
-    "IGUI_AAC_Warning_Animal_Color": "Warna sorotan untuk hewan yang membutuhkan perhatian (stres, kesehatan...)."
+    "IGUI_AAC_Warning_Animal_Color": "Warna sorotan untuk hewan yang membutuhkan perhatian (stres, kesehatan...).",
+    "IGUI_AAC_Animal_Stress": "Stres",
+    "IGUI_AAC_Animal_Health": "Kesehatan",
+    "IGUI_AAC_Animal_Pregnant": "Hamil",
+    "IGUI_AAC_Animal_Milk": "Susu",
+    "IGUI_AAC_Show_Pregnancy_Stage": "Tampilkan tahap kehamilan",
+    "IGUI_AAC_Show_Milk_Stage": "Tampilkan tahap susu",
+    "IGUI_AAC_Show_Mating_Season": "Tampilkan musim kawin",
+    "IGUI_AAC_Show_Impregnation_Readiness": "Tampilkan kesiapan pembuahan",
+    "IGUI_AAC_Choice_Status_Show": "Aktifkan untuk menampilkan status. Nonaktif secara default, tergantung level."
 }

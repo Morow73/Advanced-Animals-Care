@@ -3,5 +3,14 @@
     "IGUI_AAC_Animal_CannotBePet": "Hindi maaaring hipuin",
     "IGUI_AAC_Base_Animal_Color": "Pangunahing kulay ng highlight.",
     "IGUI_AAC_Dead_Animal_Color": "Kulay ng highlight para sa patay na hayop.",
-    "IGUI_AAC_Warning_Animal_Color": "Kulay ng highlight para sa mga hayop na nangangailangan ng pansin (stress, kalusugan...)."
+    "IGUI_AAC_Warning_Animal_Color": "Kulay ng highlight para sa mga hayop na nangangailangan ng pansin (stress, kalusugan...).",
+    "IGUI_AAC_Animal_Stress": "Stress",
+    "IGUI_AAC_Animal_Health": "Kalusugan",
+    "IGUI_AAC_Animal_Pregnant": "Buntis",
+    "IGUI_AAC_Animal_Milk": "Gatas",
+    "IGUI_AAC_Show_Pregnancy_Stage": "Ipakita ang yugto ng pagbubuntis",
+    "IGUI_AAC_Show_Milk_Stage": "Ipakita ang yugto ng gatas",
+    "IGUI_AAC_Show_Mating_Season": "Ipakita ang panahon ng pagpaparami",
+    "IGUI_AAC_Show_Impregnation_Readiness": "Ipakita ang kahandaan sa pagbubuntis",
+    "IGUI_AAC_Choice_Status_Show": "I-enable upang ipakita ang mga status. Hindi naka-enable bilang default, depende sa antas."
 }
