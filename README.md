@@ -49,6 +49,7 @@ The mod adds options to the mod settings menu:
   - base animal color
   - dead animal color
   - warning animal color
+  - mouseover animal color
 - optional display settings:
   - show pregnancy stage
   - show milk stage
