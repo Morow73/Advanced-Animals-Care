@@ -164,8 +164,8 @@ local function CreateAnimalTooltip()
         local myHeight = math.max(nameHeight, textHeight)
         if self.name then
             myHeight = myHeight +
-            (getTextManager():getFontFromEnum(UIFont.Medium):getLineHeight() - getTextManager():getFontFromEnum(UIFont.Small):getLineHeight()) +
-            4
+                (getTextManager():getFontFromEnum(UIFont.Medium):getLineHeight() - getTextManager():getFontFromEnum(UIFont.Small):getLineHeight()) +
+                4
         end
 
         self:setWidth(textWidth)
@@ -198,7 +198,6 @@ end
 ---@param animal IsoAnimal
 ---@return string
 local function GetAnimalTooltipText(animal)
-    if not animal or animal:isDead() then return "" end
     local stress = animal:getStressTxt(false, 5)
     local health = animal:getHealthText(false, 5)
     local str = ""
@@ -271,27 +270,27 @@ local function BasePanel()
             local isMouseOver = self:isMouseOver()
 
             if isMouseOver and not ContextMenuOpen then
-                if not AnimalTooltip then
-                    AnimalTooltip = CreateAnimalTooltip()
-                end
-
                 local button, animal = GetAnimalFromButton(self)
+                local isBody = instanceof(animal, "IsoDeadBody")
 
-                if button and animal then
-                    local isBody = instanceof(animal, "IsoDeadBody")
+                SelectedAnimals = animal
 
-                    SelectedAnimals = animal
-
-                    if not isBody then
-                        local description = GetAnimalTooltipText(animal)
-
-                        AnimalTooltip:setOwner(button)
-                        AnimalTooltip:setDescription(description)
-                        AnimalTooltip:setAlwaysOnTop(true)
-                        AnimalTooltip:setVisible(true)
+                if not button or not animal or isBody then
+                    if AnimalTooltip then
+                        AnimalTooltip:setVisible(false)
+                        AnimalTooltip:reset()
                     end
                 else
-                    AnimalTooltip:setVisible(false)
+                    local description = GetAnimalTooltipText(animal)
+
+                    if not AnimalTooltip then
+                        AnimalTooltip = CreateAnimalTooltip()
+                    end
+
+                    AnimalTooltip:setOwner(button)
+                    AnimalTooltip:setDescription(description)
+                    AnimalTooltip:setAlwaysOnTop(true)
+                    AnimalTooltip:setVisible(true)
                 end
             else
                 if AnimalTooltip then
@@ -371,6 +370,10 @@ local function BasePanel()
 
             if SelectedAnimals then
                 SelectedAnimals = nil
+            end
+
+            if ContextMenuOpen then
+                ContextMenuOpen = false
             end
 
             if OriginalZoneUIClose then

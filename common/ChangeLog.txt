@@ -11,3 +11,7 @@
 - Added a highlight when the mouse hovers over a line in the ranch panel.
 - Added an option to change its color in the mod options.
 [ ------ ]
+
+[25/05/2026]
+- Fixed the ISToolTip panel. It remain open when the mouse hovered over a dead animal.
+[ ------ ]
