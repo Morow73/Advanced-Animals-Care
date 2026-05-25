@@ -6,3 +6,8 @@
 - Adding checkbox options to bypass level restrictions regarding pregnancy, milk, breeding season, and fertilization capacity.
 - Adding the context menu for dead animals directly from the Ranch panel
 [ ------ ]
+
+[25/05/2026]
+- Added a highlight when the mouse hovers over a line in the ranch panel.
+- Added an option to change its color in the mod options.
+[ ------ ]

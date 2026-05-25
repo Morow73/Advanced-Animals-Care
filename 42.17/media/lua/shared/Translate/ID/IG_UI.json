@@ -12,5 +12,6 @@
     "IGUI_AAC_Show_Milk_Stage": "Tampilkan tahap susu",
     "IGUI_AAC_Show_Mating_Season": "Tampilkan musim kawin",
     "IGUI_AAC_Show_Impregnation_Readiness": "Tampilkan kesiapan pembuahan",
-    "IGUI_AAC_Choice_Status_Show": "Aktifkan untuk menampilkan status. Nonaktif secara default, tergantung level."
+    "IGUI_AAC_Choice_Status_Show": "Aktifkan untuk menampilkan status. Nonaktif secara default, tergantung level.",
+    "IGUI_AAC_Mouse_Over_Animal_Color": "Warna sorotan hewan saat kursor berada di atasnya."
 }

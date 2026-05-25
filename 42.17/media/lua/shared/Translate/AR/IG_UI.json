@@ -12,5 +12,6 @@
     "IGUI_AAC_Show_Milk_Stage": "عرض مرحلة الحليب",
     "IGUI_AAC_Show_Mating_Season": "عرض موسم التزاوج",
     "IGUI_AAC_Show_Impregnation_Readiness": "عرض جاهزية الإخصاب",
-    "IGUI_AAC_Choice_Status_Show": "تمكين لعرض الحالات. معطل افتراضيًا، يعتمد على المستوى."
+    "IGUI_AAC_Choice_Status_Show": "تمكين لعرض الحالات. معطل افتراضيًا، يعتمد على المستوى.",
+    "IGUI_AAC_Mouse_Over_Animal_Color": "لون تمييز الحيوانات عند تمرير الماوس فوقها."
 }

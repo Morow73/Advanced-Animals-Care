@@ -12,5 +12,6 @@
     "IGUI_AAC_Show_Milk_Stage": "우유 단계 표시",
     "IGUI_AAC_Show_Mating_Season": "번식 시즌 표시",
     "IGUI_AAC_Show_Impregnation_Readiness": "수정 준비 표시",
-    "IGUI_AAC_Choice_Status_Show": "상태를 표시하려면 활성화하세요. 기본적으로 비활성화되어 있으며 레벨에 따라 다릅니다."
+    "IGUI_AAC_Choice_Status_Show": "상태를 표시하려면 활성화하세요. 기본적으로 비활성화되어 있으며 레벨에 따라 다릅니다.",
+    "IGUI_AAC_Mouse_Over_Animal_Color": "마우스 오버한 동물의 강조 색상."
 }

@@ -5,7 +5,8 @@ AAC.OPTIONS.DEFAULT_OPTIONS = {
     COLOR = {
         ['baseColor'] = { id = "baseColor", description = "IGUI_AAC_Base_Animal_Color", color = { r = 0.0, g = 0.31, b = 0.0, a = 0.85 } },
         ['deadColor'] = { id = "deadColor", description = "IGUI_AAC_Dead_Animal_Color", color = { r = 1.0, g = 0.0, b = 0.0, a = 0.5 } },
-        ['warningColor'] = { id = "warningColor", description = "IGUI_AAC_Warning_Animal_Color", color = { r = 1.0, g = 1.0, b = 0.0, a = 0.85 } }
+        ['warningColor'] = { id = "warningColor", description = "IGUI_AAC_Warning_Animal_Color", color = { r = 1.0, g = 1.0, b = 0.0, a = 0.85 } },
+        ['mouseOverColor'] = { id = "mouseOverColor", description = "IGUI_AAC_Mouse_Over_Animal_Color", color = { r = 1.0, g = 1.0, b = 1.0, a = 1.0 } }
     },
     DISPLAY = {
         { id = "showPregnancyStage", description = "IGUI_AAC_Show_Pregnancy_Stage", value = false },

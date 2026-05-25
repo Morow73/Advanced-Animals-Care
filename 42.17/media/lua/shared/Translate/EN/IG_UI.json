@@ -12,5 +12,6 @@
     "IGUI_AAC_Show_Milk_Stage": "Show milk stage",
     "IGUI_AAC_Show_Mating_Season": "Show mating season",
     "IGUI_AAC_Show_Impregnation_Readiness": "Show impregnation readiness",
-    "IGUI_AAC_Choice_Status_Show": "Enable to display statuses. Disabled by default, depends on level."
+    "IGUI_AAC_Choice_Status_Show": "Enable to display statuses. Disabled by default, depends on level.",
+    "IGUI_AAC_Mouse_Over_Animal_Color": "Mouse-over animal highlight color."
 }

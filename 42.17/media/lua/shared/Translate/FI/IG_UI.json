@@ -12,5 +12,6 @@
     "IGUI_AAC_Show_Milk_Stage": "Näytä maidontuotannon vaihe",
     "IGUI_AAC_Show_Mating_Season": "Näytä parittelukausi",
     "IGUI_AAC_Show_Impregnation_Readiness": "Näytä siitosvalmius",
-    "IGUI_AAC_Choice_Status_Show": "Ota käyttöön näyttämään tilat. Oletuksena pois käytöstä, riippuu tasosta."
+    "IGUI_AAC_Choice_Status_Show": "Ota käyttöön näyttämään tilat. Oletuksena pois käytöstä, riippuu tasosta.",
+    "IGUI_AAC_Mouse_Over_Animal_Color": "Eläimen korostusväri, kun hiiri on sen päällä."
 }

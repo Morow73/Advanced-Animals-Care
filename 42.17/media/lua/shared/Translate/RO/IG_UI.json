@@ -12,5 +12,6 @@
     "IGUI_AAC_Show_Milk_Stage": "Afișează stadiul laptelui",
     "IGUI_AAC_Show_Mating_Season": "Afișează sezonul de împerechere",
     "IGUI_AAC_Show_Impregnation_Readiness": "Afișează pregătirea la inseminare",
-    "IGUI_AAC_Choice_Status_Show": "Activează pentru a afișa stările. Dezactivat implicit, depinde de nivel."
+    "IGUI_AAC_Choice_Status_Show": "Activează pentru a afișa stările. Dezactivat implicit, depinde de nivel.",
+    "IGUI_AAC_Mouse_Over_Animal_Color": "Culoarea de evidențiere a animalelor atunci când treci mouse-ul peste ele."
 }

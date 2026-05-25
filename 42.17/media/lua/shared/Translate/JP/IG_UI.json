@@ -12,5 +12,6 @@
     "IGUI_AAC_Show_Milk_Stage": "乳量段階を表示",
     "IGUI_AAC_Show_Mating_Season": "繁殖期を表示",
     "IGUI_AAC_Show_Impregnation_Readiness": "受精準備を表示",
-    "IGUI_AAC_Choice_Status_Show": "ステータスを表示するには有効にします。デフォルトでは無効で、レベルによります。"
+    "IGUI_AAC_Choice_Status_Show": "ステータスを表示するには有効にします。デフォルトでは無効で、レベルによります。",
+    "IGUI_AAC_Mouse_Over_Animal_Color": "マウスオーバーした動物のハイライト色。"
 }

@@ -12,5 +12,6 @@
     "IGUI_AAC_Show_Milk_Stage": "显示产奶阶段",
     "IGUI_AAC_Show_Mating_Season": "显示繁殖季节",
     "IGUI_AAC_Show_Impregnation_Readiness": "显示受孕准备",
-    "IGUI_AAC_Choice_Status_Show": "启用以显示状态。默认关闭，取决于等级。"
+    "IGUI_AAC_Choice_Status_Show": "启用以显示状态。默认关闭，取决于等级。",
+    "IGUI_AAC_Mouse_Over_Animal_Color": "鼠标悬停动物的高亮颜色。"
 }

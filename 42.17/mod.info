@@ -1,10 +1,11 @@
 name=Advanced Animals Care
 id=advancedanimalscare
 description=Enhances the ranch UI: highlights stressed/dead animals and displays health, pregnancy, and pettable status.
-version=1.1
-modversion=1.1
+version=1.2
+modversion=1.2
 poster=poster.png
 icon=icons.png
 author=Morow
 versionMin=42.17
 tags=Build 42, Quality of life, QOL
+incompatible=EURY_ANIMALCARE
