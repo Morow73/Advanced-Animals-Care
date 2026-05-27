@@ -15,3 +15,8 @@
 [25/05/2026]
 - Fixed the ISToolTip panel. It remain open when the mouse hovered over a dead animal.
 [ ------ ]
+
+[27/05/2026]
+- Added an option to display the remaining gestation period.
+- Added a calendar for breeding season
+[ ------ ]

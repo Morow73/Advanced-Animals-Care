@@ -67,32 +67,40 @@ function AAC.UTILS.GetCheckboxOptions()
     return values
 end
 
----format rich text line.
+---format rich text
 ---@param key string
----@param value string | number
+---@param value string | number | nil
+---@param center boolean
+---@param size string | nil
 ---@param color table | nil
 ---@return string
-function AAC.UTILS.FormatRichTextLine(key, value, color)
+function AAC.UTILS.FormatRichText(key, value, center, size, color)
     if not key then return "" end
+    local chain
 
-    local label = string.gsub(getText(key), "%s*:%s*$", "")
-    local valueText = value == nil and "-" or tostring(value)
-
-    if color then
-        return "<TEXT> <RGB:1,1,1> " .. label .. " <SPACE> : <SPACE><RGB:"..string.format("%.2f,%.2f,%.2f", color.r, color.g, color.b).."> " .. valueText .. " <LINE>"
+    if not size then
+        size = "small"
     end
-    return "<TEXT> <RGB:1,1,1> " .. label .. " <SPACE> : <SPACE><RGB:0.7,0.7,0.7> " .. valueText .. " <LINE>"
-end
 
----format rich text value.
----@param text string
----@param color table | nil
----@return string
-function AAC.UTILS.FormatRichTextValue(text, color)
-    if not text then return "" end
-
-    if color then
-        return "<TEXT> <SIZE:medium> <RGB:"..string.format("%.2f,%.2f,%.2f", color.r, color.g, color.b).."> <SIZE:small> " .. tostring(text) .. " <LINE>"
+    if not color then
+        color = { r = 1.0, g = 1.0, b = 1.0 }
+    else
+        color = { r = color.r, g = color.g, b = color.b }
     end
-    return "<TEXT> <SIZE:medium> " .. tostring(text) .. " <LINE>"
+
+    if not value then
+        if not center then
+            chain = "<TEXT> <SIZE:"..size.."> <RGB:"..string.format("%.2f,%.2f,%.2f", color.r, color.g, color.b).."> " .. key
+        else
+            chain = "<TEXT> <CENTRE> <SIZE:"..size.."> <RGB:"..string.format("%.2f,%.2f,%.2f", color.r, color.g, color.b).."> " .. key
+        end
+    else
+        if center then
+            chain = "<TEXT> <CENTRE> <SIZE:"..size.."> <RGB:1,1,1>"..key.." <SPACE> : <SPACE><RGB:"..string.format("%.2f,%.2f,%.2f", color.r, color.g, color.b).."> " .. tostring(value) .. " <LINE>"
+        else
+            chain = "<TEXT> <SIZE:"..size.."> <RGB:1,1,1>"..key.." <SPACE> : <SPACE><RGB:"..string.format("%.2f,%.2f,%.2f", color.r, color.g, color.b).."> " .. tostring(value) .. " <LINE>"
+        end
+    end
+
+    return chain
 end

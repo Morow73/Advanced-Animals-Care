@@ -13,5 +13,7 @@
     "IGUI_AAC_Show_Mating_Season": "Paarungszeit anzeigen",
     "IGUI_AAC_Show_Impregnation_Readiness": "Bereitschaft zur Besamung anzeigen",
     "IGUI_AAC_Choice_Status_Show": "Aktivieren, um Status anzuzeigen. Standardmäßig deaktiviert, abhängig vom Level.",
-    "IGUI_AAC_Mouse_Over_Animal_Color": "Highlight-Farbe für Tiere, über die die Maus fährt."
+    "IGUI_AAC_Mouse_Over_Animal_Color": "Highlight-Farbe für Tiere, über die die Maus fährt.",
+    "IGUI_AAC_Show_Pregnancy_Time": "Verbleibende Tragzeit anzeigen",
+    "IGUI_AAC_Animal_Pregnancy_Time": "Verbleibende Tragzeit (in Tagen)"
 }

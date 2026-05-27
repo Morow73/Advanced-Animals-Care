@@ -13,5 +13,7 @@
     "IGUI_AAC_Show_Mating_Season": "Показати сезон розмноження",
     "IGUI_AAC_Show_Impregnation_Readiness": "Показати готовність до осіменіння",
     "IGUI_AAC_Choice_Status_Show": "Увімкніть для відображення статусів. За замовчуванням вимкнено, залежить від рівня.",
-    "IGUI_AAC_Mouse_Over_Animal_Color": "Колір підсвічування тварин при наведенні миші."
+    "IGUI_AAC_Mouse_Over_Animal_Color": "Колір підсвічування тварин при наведенні миші.",
+    "IGUI_AAC_Show_Pregnancy_Time": "Показати час вагітності, що залишився",
+    "IGUI_AAC_Animal_Pregnancy_Time": "Залишкова вагітність (дні)"
 }

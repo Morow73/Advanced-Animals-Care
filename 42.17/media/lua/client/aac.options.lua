@@ -12,7 +12,8 @@ AAC.OPTIONS.DEFAULT_OPTIONS = {
         { id = "showPregnancyStage", description = "IGUI_AAC_Show_Pregnancy_Stage", value = false },
         { id = "showMilkStage", description = "IGUI_AAC_Show_Milk_Stage", value = false },
         { id = "showMatingSeason", description = "IGUI_AAC_Show_Mating_Season", value = false },
-        { id = "showImpregnationReadiness", description = "IGUI_AAC_Show_Impregnation_Readiness", value = false }
+        { id = "showImpregnationReadiness", description = "IGUI_AAC_Show_Impregnation_Readiness", value = false },
+        { id = "showPregnancyTime", description = "IGUI_AAC_Show_Pregnancy_Time", value = false },
     }
 }
 

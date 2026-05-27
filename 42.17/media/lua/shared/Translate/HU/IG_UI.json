@@ -13,5 +13,7 @@
     "IGUI_AAC_Show_Mating_Season": "Párzási szezon megjelenítése",
     "IGUI_AAC_Show_Impregnation_Readiness": "Megtermékenyítési készség megjelenítése",
     "IGUI_AAC_Choice_Status_Show": "Engedélyezze az állapotok megjelenítését. Alapértelmezés szerint ki van kapcsolva, a szinttől függ.",
-    "IGUI_AAC_Mouse_Over_Animal_Color": "Az egérmutató alatti állat kiemelő színe."
+    "IGUI_AAC_Mouse_Over_Animal_Color": "Az egérmutató alatti állat kiemelő színe.",
+    "IGUI_AAC_Show_Pregnancy_Time": "Mutassa a hátralevő vemhességi időt",
+    "IGUI_AAC_Animal_Pregnancy_Time": "Fennmaradó vemhesség (napokban)"
 }

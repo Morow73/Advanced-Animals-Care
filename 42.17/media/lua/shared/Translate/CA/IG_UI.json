@@ -13,5 +13,7 @@
     "IGUI_AAC_Show_Mating_Season": "Mostrar la temporada de reproducció",
     "IGUI_AAC_Show_Impregnation_Readiness": "Mostrar la preparació per inseminació",
     "IGUI_AAC_Choice_Status_Show": "Activa per mostrar els estats. Desactivat per defecte, depèn del nivell.",
-    "IGUI_AAC_Mouse_Over_Animal_Color": "Color de ressaltat dels animals sobrevolats pel ratolí."
+    "IGUI_AAC_Mouse_Over_Animal_Color": "Color de ressaltat dels animals sobrevolats pel ratolí.",
+    "IGUI_AAC_Show_Pregnancy_Time": "Mostra el temps de gestació restant",
+    "IGUI_AAC_Animal_Pregnancy_Time": "Gestació restant (en dies)"
 }

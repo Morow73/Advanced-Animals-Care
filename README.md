@@ -34,8 +34,9 @@ Hovering over an animal entry in the panel shows a tooltip with additional infor
 - mating season status
 - impregnation readiness or male fertilization status
 - whether the animal can be petted
+- calendar for breeding season
 
-Some tooltip information is shown only when the player has sufficient Husbandry skill or when the related display option is enabled.
+Some tooltip information is shown only when the player has sufficient Breeding skill or when the related display option is enabled.
 
 ### Context Menu Support
 
@@ -53,14 +54,15 @@ The mod adds options to the mod settings menu:
 - optional display settings:
   - show pregnancy stage
   - show milk stage
-  - show mating season
+  - show breeding season
   - show impregnation readiness
+  - show remaining gestation period
 
 ## Metadata
 
 - Name: Advanced Animals Care
 - ID: advancedanimalscare
-- Version: 1.2
+- Version: 1.3
 - Compatible from: 42.17 +
 
 **Steam workshop link** [Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3730587949).

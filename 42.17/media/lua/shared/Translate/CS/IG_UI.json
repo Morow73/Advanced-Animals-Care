@@ -13,5 +13,7 @@
     "IGUI_AAC_Show_Mating_Season": "Zobrazit období páření",
     "IGUI_AAC_Show_Impregnation_Readiness": "Zobrazit připravenost k oplodnění",
     "IGUI_AAC_Choice_Status_Show": "Povolit zobrazení stavů. Ve výchozím nastavení vypnuto, závisí na úrovni.",
-    "IGUI_AAC_Mouse_Over_Animal_Color": "Barva zvýraznění zvířat přejetých myší."
+    "IGUI_AAC_Mouse_Over_Animal_Color": "Barva zvýraznění zvířat přejetých myší.",
+    "IGUI_AAC_Show_Pregnancy_Time": "Zobrazit zbývající dobu těhotenství",
+    "IGUI_AAC_Animal_Pregnancy_Time": "Zbývající těhotenství (dny)"
 }

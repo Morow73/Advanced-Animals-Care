@@ -13,5 +13,7 @@
     "IGUI_AAC_Show_Mating_Season": "Afficher la saison de reproduction",
     "IGUI_AAC_Show_Impregnation_Readiness": "Afficher la préparation à l’insémination",
     "IGUI_AAC_Choice_Status_Show": "Activer pour afficher les statuts. Désactivé par défaut, dépend du niveau.",
-    "IGUI_AAC_Animal_Milk": "Lait"
+    "IGUI_AAC_Animal_Milk": "Lait",
+    "IGUI_AAC_Show_Pregnancy_Time": "Afficher le temps de gestation restant",
+    "IGUI_AAC_Animal_Pregnancy_Time": "Gestation restante (en jours)"
 }

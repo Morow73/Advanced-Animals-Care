@@ -1,5 +1,44 @@
 AAC = AAC or {}
 AAC.STAGE = AAC.STAGE or {}
+AAC.STAGE.CALENDAR = { "J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D" }
+
+---return whether a month is inside a mating range.
+---@param month integer
+---@param startMonth integer
+---@param endMonth integer
+---@return boolean
+local function IsMonthInMatingRange(month, startMonth, endMonth)
+    if not month or not startMonth or not endMonth then
+        return false
+    end
+
+    if startMonth == 0 then
+        return true
+    end
+
+    if startMonth <= endMonth then
+        return month >= startMonth and month <= endMonth
+    end
+
+    return month >= startMonth or month <= endMonth
+end
+
+---return pregnant animal time
+---@param animal IsoAnimal
+---@return number|nil
+function AAC.STAGE.GetAnimalPregnancyTime(animal)
+    local data = animal:getData()
+
+    if not data:isPregnant() then return end
+
+    local time = data:getPregnantPeriod() - data:getPregnancyTime()
+
+    if not time or time == 0 then
+        return
+    end
+
+    return time
+end
 
 ---return pregnant animals stage
 ---@param animal IsoAnimal
@@ -7,14 +46,11 @@ AAC.STAGE = AAC.STAGE or {}
 function AAC.STAGE.GetAnimalPregnancyStage(animal)
     local data = animal:getData()
 
-    if not data:isPregnant() then
-        return ""
-    end
+    if not data:isPregnant() then return "" end
 
     local period = data:getPregnantPeriod()
-    if not period or period == 0 then
-        return ""
-    end
+
+    if not period or period == 0 then return "" end
 
     local time = data:getPregnancyTime()
     local perc = time / period
@@ -46,9 +82,7 @@ function AAC.STAGE.GetAnimalMilkStage(animal)
     local data = animal:getData()
     local canHaveMilk = data:canHaveMilk()
 
-    if not canHaveMilk then
-        return ""
-    end
+    if not canHaveMilk then return "" end
 
     local milkQuantity = data:getMilkQuantity()
     local maxMilk = data:getMaxMilk()
@@ -76,22 +110,25 @@ function AAC.STAGE.GetAnimalMatingStatus(animal)
     end
 
     local data = animal:getData()
-    if not data then
-        return ""
-    end
+    if not data then return "" end
 
     local lastPregnancy = data:getLastPregnancyPeriod()
     local stage
 
     if lastPregnancy then
-        stage = getText("IGUI_Animal_TooSoonForBaby") .. " (" .. lastPregnancy .. " " .. getText("IGUI_Gametime_hours") .. ")"
+        stage = getText("IGUI_Animal_TooSoonForBaby") ..
+            " (" .. lastPregnancy .. " " .. getText("IGUI_Gametime_hours") .. ")"
     end
 
     if data:getDaysSurvived() < animal:getMinAgeForBaby() then
         stage = getText("IGUI_Animal_TooYoungForBaby")
     end
 
-    if animal:isInMatingSeason() then
+    local currentMonth = getGameTime():getMonth() + 1
+    local startMonth, endMonth = AAC.STAGE.GetAnimalMonthPregnant(animal)
+
+---@diagnostic disable-next-line: param-type-mismatch
+    if IsMonthInMatingRange(currentMonth, startMonth, endMonth) then
         stage = getText("IGUI_Yes")
     end
 
@@ -108,11 +145,9 @@ function AAC.STAGE.GetAnimalMaleImpregnateStatus(animal)
 
     local data = animal:getData()
 
-    if not data then
-        return ""
-    end
+    if not data then return "" end
 
----@diagnostic disable-next-line: param-type-mismatch
+    ---@diagnostic disable-next-line: param-type-mismatch
     local lastImpregnate = data:getLastImpregnatePeriod(nil)
 
     if not lastImpregnate or lastImpregnate < 0 then
@@ -127,4 +162,41 @@ function AAC.STAGE.GetAnimalMaleImpregnateStatus(animal)
     end
 
     return getText("IGUI_Animal_ReadyToImpregnateIn") .. " " .. lastImpregnate .. " " .. getText("IGUI_Gametime_hours")
+end
+
+---return animal breeding season
+---@param animal IsoAnimal
+function AAC.STAGE.GetAnimalMonthPregnant(animal)
+    if not animal or animal:isBaby() then return end
+
+    local animalType = animal:getAnimalType()
+    if not animalType then return end
+
+    local definition = AnimalDefinitions and AnimalDefinitions.animals and AnimalDefinitions.animals[animalType]
+    if not definition then return end
+
+    local startMonth = definition.matingPeriodStart
+    local endMonth = definition.matingPeriodEnd
+
+    if not startMonth or not endMonth then
+        for _, otherDef in pairs(AnimalDefinitions.animals) do
+            if otherDef.group == definition.group and otherDef ~= definition then
+                if not startMonth and otherDef.matingPeriodStart then
+                    startMonth = otherDef.matingPeriodStart
+                end
+                if not endMonth and otherDef.matingPeriodEnd then
+                    endMonth = otherDef.matingPeriodEnd
+                end
+                if startMonth and endMonth then
+                    break
+                end
+            end
+        end
+    end
+
+    if not startMonth or not endMonth then
+        return 0, 12
+    end
+
+    return startMonth, endMonth
 end

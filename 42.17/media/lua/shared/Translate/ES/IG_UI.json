@@ -13,5 +13,7 @@
     "IGUI_AAC_Show_Mating_Season": "Mostrar temporada de cría",
     "IGUI_AAC_Show_Impregnation_Readiness": "Mostrar preparación para la inseminación",
     "IGUI_AAC_Choice_Status_Show": "Activar para mostrar los estados. Desactivado por defecto, depende del nivel.",
-    "IGUI_AAC_Mouse_Over_Animal_Color": "Color de resaltado de animales cuando el cursor pasa por encima."
+    "IGUI_AAC_Mouse_Over_Animal_Color": "Color de resaltado de animales cuando el cursor pasa por encima.",
+    "IGUI_AAC_Show_Pregnancy_Time": "Mostrar tiempo de gestación restante",
+    "IGUI_AAC_Animal_Pregnancy_Time": "Gestación restante (en días)"
 }

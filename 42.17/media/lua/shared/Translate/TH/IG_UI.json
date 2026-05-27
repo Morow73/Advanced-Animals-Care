@@ -13,5 +13,7 @@
     "IGUI_AAC_Show_Mating_Season": "แสดงฤดูผสมพันธุ์",
     "IGUI_AAC_Show_Impregnation_Readiness": "แสดงความพร้อมในการผสมพันธุ์",
     "IGUI_AAC_Choice_Status_Show": "เปิดใช้งานเพื่อแสดงสถานะ ปิดโดยค่าเริ่มต้น ขึ้นอยู่กับระดับ.",
-    "IGUI_AAC_Mouse_Over_Animal_Color": "สีไฮไลท์ของสัตว์เมื่อวางเมาส์เหนือ"
+    "IGUI_AAC_Mouse_Over_Animal_Color": "สีไฮไลท์ของสัตว์เมื่อวางเมาส์เหนือ",
+    "IGUI_AAC_Show_Pregnancy_Time": "แสดงเวลาตั้งท้องที่เหลืออยู่",
+    "IGUI_AAC_Animal_Pregnancy_Time": "ตั้งท้องที่เหลืออยู่ (วัน)"
 }

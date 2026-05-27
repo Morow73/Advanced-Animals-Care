@@ -13,5 +13,7 @@
     "IGUI_AAC_Show_Mating_Season": "顯示繁殖季節",
     "IGUI_AAC_Show_Impregnation_Readiness": "顯示受孕準備情況",
     "IGUI_AAC_Choice_Status_Show": "啟用以顯示狀態。預設關閉，取決於等級。",
-    "IGUI_AAC_Mouse_Over_Animal_Color": "滑鼠懸停動物的高亮顏色。"
+    "IGUI_AAC_Mouse_Over_Animal_Color": "滑鼠懸停動物的高亮顏色。",
+    "IGUI_AAC_Show_Pregnancy_Time": "顯示剩餘妊娠時間",
+    "IGUI_AAC_Animal_Pregnancy_Time": "剩餘妊娠時間（天）"
 }
