@@ -228,7 +228,7 @@ local function GetAnimalTooltipText(animal)
                 str = str .. AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_Pregnant"), pregnancyStage, false, nil, { r = 0.8, g = 0.85, b = 1 })
             end
 
-            if showPregnancyTime then
+            if showPregnancyTime and pregnancyStage ~= getText("IGUI_No") then
                 local pregnancyTime = AAC.STAGE.GetAnimalPregnancyTime(animal)
                 str = str .. AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_Pregnancy_Time"), tostring(pregnancyTime), false, nil, { r = 0.8, g = 0.85, b = 1 })
             end

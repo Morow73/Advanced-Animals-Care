@@ -20,3 +20,7 @@
 - Added an option to display the remaining gestation period.
 - Added a calendar for breeding season
 [ ------ ]
+
+[28/05/2026]
+- Fix the gestation time display for an animal is not in gestation.
+[ ------ ]
