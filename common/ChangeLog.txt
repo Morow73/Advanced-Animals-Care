@@ -16,11 +16,7 @@
 - Fixed the ISToolTip panel. It remain open when the mouse hovered over a dead animal.
 [ ------ ]
 
-[27/05/2026]
-- Added an option to display the remaining gestation period.
-- Added a calendar for breeding season
-[ ------ ]
-
-[28/05/2026]
-- Fix the gestation time display for an animal is not in gestation.
+[03/06/2026]
+- Added a highlight when the animals is pregnancy.
+- Added an option to change its color in the mod options.
 [ ------ ]

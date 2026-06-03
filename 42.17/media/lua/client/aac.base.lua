@@ -23,7 +23,7 @@ local function HighlightAnimal(animal, playerNum, isdead)
     if not animal or not playerNum then return end
 
     local color = nil
-    local basecolor, deadcolor, warningcolor, mouseovercolor = AAC.UTILS.GetColorOptions()
+    local basecolor, deadcolor, warningcolor, mouseovercolor, pregnancycolor = AAC.UTILS.GetColorOptions()
 
     if isdead then
         color = { r = deadcolor.r, g = deadcolor.g, b = deadcolor.b, a = deadcolor.a }
@@ -34,9 +34,12 @@ local function HighlightAnimal(animal, playerNum, isdead)
         local health = animal:getHealth() * 100
         local hunger = AAC.UTILS.Round(animal:getHunger(), 2)
         local thirst = AAC.UTILS.Round(animal:getThirst(), 2)
+        local pregnancy = animal:getData():isPregnant()
 
         if (stress >= 25.0 or hunger > 0.10 or thirst > 0.10 or health < 80.0) then
             color = { r = warningcolor.r, g = warningcolor.g, b = warningcolor.b, a = warningcolor.a }
+        elseif pregnancy then
+            color = { r = pregnancycolor.r, g = pregnancycolor.g, b = pregnancycolor.b, a = pregnancycolor.a }
         else
             color = { r = basecolor.r, g = basecolor.g, b = basecolor.b, a = basecolor.a }
         end
@@ -210,9 +213,11 @@ local function GetAnimalTooltipText(animal)
     local str = ""
     local matingStatus = ""
 
-    str = str .. AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_Stress"), stress, false, nil, { r = 0.7, g = 0.9, b = 0.7 })
+    str = str ..
+    AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_Stress"), stress, false, nil, { r = 0.7, g = 0.9, b = 0.7 })
 
-    str = str .. AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_Health"), health, false, nil, { r = 0.8, g = 0.9, b = 0.8 })
+    str = str ..
+    AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_Health"), health, false, nil, { r = 0.8, g = 0.9, b = 0.8 })
 
     if animal:isFemale() then
         local showPregnancyStage = checkboxOptions['showPregnancyStage']
@@ -225,19 +230,24 @@ local function GetAnimalTooltipText(animal)
             local showPregnancyTime = checkboxOptions['showPregnancyTime']
 
             if (showPregnancyStage or skillLvl > 2) then
-                str = str .. AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_Pregnant"), pregnancyStage, false, nil, { r = 0.8, g = 0.85, b = 1 })
+                str = str ..
+                AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_Pregnant"), pregnancyStage, false, nil,
+                    { r = 0.8, g = 0.85, b = 1 })
             end
 
             if showPregnancyTime and pregnancyStage ~= getText("IGUI_No") then
                 local pregnancyTime = AAC.STAGE.GetAnimalPregnancyTime(animal)
-                str = str .. AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_Pregnancy_Time"), tostring(pregnancyTime), false, nil, { r = 0.8, g = 0.85, b = 1 })
+                str = str ..
+                AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_Pregnancy_Time"), tostring(pregnancyTime), false, nil,
+                    { r = 0.8, g = 0.85, b = 1 })
             end
         end
 
         matingStatus = AAC.STAGE.GetAnimalMatingStatus(animal)
 
         if milkStage and milkStage ~= "" and (showMilkStage or skillLvl > 2) then
-            str = str .. AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_Milk"), milkStage, false, nil, { r = 1, g = 0.9, b = 0.6 })
+            str = str ..
+            AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_Milk"), milkStage, false, nil, { r = 1, g = 0.9, b = 0.6 })
         end
 
         if not (showMatingSeason or skillLvl > 4) then
@@ -253,7 +263,9 @@ local function GetAnimalTooltipText(animal)
     end
 
     if matingStatus and matingStatus ~= "" then
-        str = str .. AAC.UTILS.FormatRichText(getText("IGUI_Animal_MatingSeason"), matingStatus, false, nil, { r = 0.8, g = 0.85, b = 1 })
+        str = str ..
+        AAC.UTILS.FormatRichText(getText("IGUI_Animal_MatingSeason"), matingStatus, false, nil,
+            { r = 0.8, g = 0.85, b = 1 })
     end
 
     if animal:isFemale() then
@@ -275,9 +287,9 @@ local function GetAnimalTooltipText(animal)
                 end
 
                 if highlightMonth then
-                    data[#data+1] = "<GREEN>" .. AAC.STAGE.CALENDAR[i]
+                    data[#data + 1] = "<GREEN>" .. AAC.STAGE.CALENDAR[i]
                 else
-                    data[#data+1] = "<RED>" .. AAC.STAGE.CALENDAR[i]
+                    data[#data + 1] = "<RED>" .. AAC.STAGE.CALENDAR[i]
                 end
             end
 
@@ -287,9 +299,13 @@ local function GetAnimalTooltipText(animal)
     end
 
     if animal:petTimerDone() then
-        str = str .." <BR> ".. AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_CanBePet"), nil, true, nil, { r = 0.7, g = 0.9, b = 0.7 })
+        str = str ..
+        " <BR> " ..
+        AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_CanBePet"), nil, true, nil, { r = 0.7, g = 0.9, b = 0.7 })
     else
-        str = str .." <BR> ".. AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_CannotBePet"), nil, true, nil, { r = 0.9, g = 0.7, b = 0.7 })
+        str = str ..
+        " <BR> " ..
+        AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_CannotBePet"), nil, true, nil, { r = 0.9, g = 0.7, b = 0.7 })
     end
 
     return str

@@ -8,12 +8,13 @@
     "IGUI_AAC_Animal_Health": "Gezondheid",
     "IGUI_AAC_Animal_Pregnant": "Zwanger",
     "IGUI_AAC_Animal_Milk": "Melk",
+    "IGUI_AAC_Show_Pregnancy_Time": "Toon resterende draagtijd",
+    "IGUI_AAC_Animal_Pregnancy_Time": "Resterende draagtijd (in dagen)",
     "IGUI_AAC_Show_Pregnancy_Stage": "Toon zwangerschapsfase",
     "IGUI_AAC_Show_Milk_Stage": "Toon melkfase",
     "IGUI_AAC_Show_Mating_Season": "Toon de paringstijd",
     "IGUI_AAC_Show_Impregnation_Readiness": "Toon de bereidheid voor inseminatie",
     "IGUI_AAC_Choice_Status_Show": "Inschakelen om statussen weer te geven. Standaard uitgeschakeld, afhankelijk van niveau.",
     "IGUI_AAC_Mouse_Over_Animal_Color": "Highlightkleur voor dieren waar de muis overheen beweegt.",
-    "IGUI_AAC_Show_Pregnancy_Time": "Toon resterende draagtijd",
-    "IGUI_AAC_Animal_Pregnancy_Time": "Resterende drachtigheid (dagen)"
+    "IGUI_AAC_Pregnancy_Animal_Color": "Highlightkleur voor drachtige dieren."
 }

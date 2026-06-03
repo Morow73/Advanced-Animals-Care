@@ -8,12 +8,13 @@
     "IGUI_AAC_Animal_Health": "Здоров'я",
     "IGUI_AAC_Animal_Pregnant": "Вагітність",
     "IGUI_AAC_Animal_Milk": "Молоко",
+    "IGUI_AAC_Show_Pregnancy_Time": "Показати залишковий час вагітності",
+    "IGUI_AAC_Animal_Pregnancy_Time": "Залишковий час вагітності (у днях)",
     "IGUI_AAC_Show_Pregnancy_Stage": "Показати стадію вагітності",
     "IGUI_AAC_Show_Milk_Stage": "Показати стадію молока",
     "IGUI_AAC_Show_Mating_Season": "Показати сезон розмноження",
     "IGUI_AAC_Show_Impregnation_Readiness": "Показати готовність до осіменіння",
     "IGUI_AAC_Choice_Status_Show": "Увімкніть для відображення статусів. За замовчуванням вимкнено, залежить від рівня.",
     "IGUI_AAC_Mouse_Over_Animal_Color": "Колір підсвічування тварин при наведенні миші.",
-    "IGUI_AAC_Show_Pregnancy_Time": "Показати час вагітності, що залишився",
-    "IGUI_AAC_Animal_Pregnancy_Time": "Залишкова вагітність (дні)"
+    "IGUI_AAC_Pregnancy_Animal_Color": "Колір підсвічування вагітних тварин."
 }

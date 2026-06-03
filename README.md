@@ -20,6 +20,7 @@ Animals connected to the animal zone are highlighted with different colors based
 - `warningColor`: stressed, hungry, thirsty, or low-health animal
 - `deadColor`: dead animal / corpse
 - `mouseOverColor`:mouse hovers over a line in the ranch panel
+- `pregnancyColor `: pregnant animal
 
 These highlights are applied automatically during UI rendering and zone updates, and removed when the animal zone UI closes.
 
@@ -51,6 +52,7 @@ The mod adds options to the mod settings menu:
   - dead animal color
   - warning animal color
   - mouseover animal color
+  - pregnancy animal color
 - optional display settings:
   - show pregnancy stage
   - show milk stage
@@ -62,7 +64,7 @@ The mod adds options to the mod settings menu:
 
 - Name: Advanced Animals Care
 - ID: advancedanimalscare
-- Version: 1.3
+- Version: 1.3.2
 - Compatible from: 42.17 +
 
 **Steam workshop link** [Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3730587949).

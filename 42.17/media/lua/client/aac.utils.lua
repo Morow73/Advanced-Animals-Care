@@ -15,13 +15,15 @@ end
 ---@return table deadColor
 ---@return table warningColor
 ---@return table mouseOverColor
+---@return table pregnancyColor
 function AAC.UTILS.GetColorOptions()
     local color_option = AAC.OPTIONS.USERS_OPTIONS['baseColor']:getValue()
     local color_option_dead = AAC.OPTIONS.USERS_OPTIONS['deadColor']:getValue()
     local color_option_warning = AAC.OPTIONS.USERS_OPTIONS['warningColor']:getValue()
     local color_option_mouseover = AAC.OPTIONS.USERS_OPTIONS['mouseOverColor']:getValue()
+    local color_option_pregnancy = AAC.OPTIONS.USERS_OPTIONS['pregnancyColor']:getValue()
 
-    if color_option and color_option_dead and color_option_warning and color_option_mouseover then
+    if color_option and color_option_dead and color_option_warning and color_option_mouseover and color_option_pregnancy then
         return {
             r = color_option.r,
             g = color_option.g,
@@ -42,10 +44,15 @@ function AAC.UTILS.GetColorOptions()
             g = color_option_mouseover.g,
             b = color_option_mouseover.b,
             a = color_option_mouseover.a
+        }, {
+            r = color_option_pregnancy.r,
+            g = color_option_pregnancy.g,
+            b = color_option_pregnancy.b,
+            a = color_option_pregnancy.a
         }
     end
 
-    return AAC.OPTIONS.DEFAULT_OPTIONS['baseColor'].color, AAC.OPTIONS.DEFAULT_OPTIONS['deadColor'].color, AAC.OPTIONS.DEFAULT_OPTIONS['warningColor'].color, AAC.OPTIONS.DEFAULT_OPTIONS['mouseOverColor'].color
+    return AAC.OPTIONS.DEFAULT_OPTIONS['baseColor'].color, AAC.OPTIONS.DEFAULT_OPTIONS['deadColor'].color, AAC.OPTIONS.DEFAULT_OPTIONS['warningColor'].color, AAC.OPTIONS.DEFAULT_OPTIONS['mouseOverColor'].color, AAC.OPTIONS.DEFAULT_OPTIONS['pregnancyColor'].color
 end
 
 ---return checkbox options choice.
@@ -66,6 +73,7 @@ function AAC.UTILS.GetCheckboxOptions()
 
     return values
 end
+
 
 ---format rich text
 ---@param key string
