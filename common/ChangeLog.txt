@@ -20,3 +20,9 @@
 - Added a highlight when the animals is pregnancy.
 - Added an option to change its color in the mod options.
 [ ------ ]
+
+[05/06/2026]
+- Fix the status for indicating the time before the next possible fertilization for females.
+- Better tooltip logic.
+- Minor code change.
+[ ------ ]

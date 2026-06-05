@@ -64,7 +64,7 @@ The mod adds options to the mod settings menu:
 
 - Name: Advanced Animals Care
 - ID: advancedanimalscare
-- Version: 1.3.2
+- Version: 1.3.3
 - Compatible from: 42.17 +
 
 **Steam workshop link** [Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3730587949).

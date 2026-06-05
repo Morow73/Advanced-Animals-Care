@@ -103,14 +103,14 @@ end
 
 ---return animal mating season status or pregnancy cooldown text
 ---@param animal IsoAnimal
----@return string stage
+---@return string|nil stage
 function AAC.STAGE.GetAnimalMatingStatus(animal)
     if not animal or animal:isBaby() then
-        return ""
+        return nil
     end
 
     local data = animal:getData()
-    if not data then return "" end
+    if not data then return nil end
 
     local lastPregnancy = data:getLastPregnancyPeriod()
     local stage
@@ -118,40 +118,44 @@ function AAC.STAGE.GetAnimalMatingStatus(animal)
     if lastPregnancy then
         stage = getText("IGUI_Animal_TooSoonForBaby") ..
             " (" .. lastPregnancy .. " " .. getText("IGUI_Gametime_hours") .. ")"
-    end
-
-    if data:getDaysSurvived() < animal:getMinAgeForBaby() then
+    elseif data:getDaysSurvived() < animal:getMinAgeForBaby() then
         stage = getText("IGUI_Animal_TooYoungForBaby")
+    else
+        local currentMonth = getGameTime():getMonth() + 1
+        local startMonth, endMonth = AAC.STAGE.GetAnimalMonthPregnant(animal)
+
+        ---@diagnostic disable-next-line: param-type-mismatch
+        if IsMonthInMatingRange(currentMonth, startMonth, endMonth) then
+            stage = getText("IGUI_Yes")
+        else
+            stage = getText("IGUI_No")
+        end
     end
 
-    local currentMonth = getGameTime():getMonth() + 1
-    local startMonth, endMonth = AAC.STAGE.GetAnimalMonthPregnant(animal)
-
----@diagnostic disable-next-line: param-type-mismatch
-    if IsMonthInMatingRange(currentMonth, startMonth, endMonth) then
-        stage = getText("IGUI_Yes")
-    end
-
-    return stage or getText("IGUI_No")
+    return stage
 end
 
 ---return male impregnation readiness status
 ---@param animal IsoAnimal
----@return string stage
+---@return string|nil stage
 function AAC.STAGE.GetAnimalMaleImpregnateStatus(animal)
     if not animal or animal:isFemale() or animal:isBaby() then
-        return ""
+        return nil
     end
 
     local data = animal:getData()
 
-    if not data then return "" end
+    if not data then return nil end
 
     ---@diagnostic disable-next-line: param-type-mismatch
     local lastImpregnate = data:getLastImpregnatePeriod(nil)
 
-    if not lastImpregnate or lastImpregnate < 0 then
-        return ""
+    if data:getDaysSurvived() < animal:getMinAgeForBaby() then
+        return getText("IGUI_Animal_TooYoungForBaby")
+    end
+
+    if not lastImpregnate or lastImpregnate == -1 then
+        return nil
     end
 
     if lastImpregnate == 0 then
