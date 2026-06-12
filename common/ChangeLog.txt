@@ -26,3 +26,9 @@
 - Better tooltip logic.
 - Minor code change.
 [ ------ ]
+
+[11/06/2026]
+- Added a progress bar in tooltip for better understanding of the gestation stage.
+- Added animal gender in tooltip.
+- Fix of minimum values ​​before triggering the highlighting (Hunger, Thirst).
+[ ------ ]

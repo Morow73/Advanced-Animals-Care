@@ -23,7 +23,7 @@ local function IsMonthInMatingRange(month, startMonth, endMonth)
     return month >= startMonth or month <= endMonth
 end
 
----return pregnant animal time
+---return pregnant animal percentage of pregnancy time
 ---@param animal IsoAnimal
 ---@return number|nil
 function AAC.STAGE.GetAnimalPregnancyTime(animal)
@@ -31,30 +31,23 @@ function AAC.STAGE.GetAnimalPregnancyTime(animal)
 
     if not data:isPregnant() then return end
 
-    local time = data:getPregnantPeriod() - data:getPregnancyTime()
+    local perc = data:getPregnancyTime() / data:getPregnantPeriod()
 
-    if not time or time == 0 then
+    if not perc or perc == 0.0 then
         return
     end
 
-    return time
+    return perc
 end
 
 ---return pregnant animals stage
 ---@param animal IsoAnimal
 ---@return string stage
 function AAC.STAGE.GetAnimalPregnancyStage(animal)
-    local data = animal:getData()
+    local perc = AAC.STAGE.GetAnimalPregnancyTime(animal)
+    local stage = ""
 
-    if not data:isPregnant() then return "" end
-
-    local period = data:getPregnantPeriod()
-
-    if not period or period == 0 then return "" end
-
-    local time = data:getPregnancyTime()
-    local perc = time / period
-    local stage
+    if not perc then return stage end
 
     if perc < 0.08 then
         stage = getText("IGUI_No")

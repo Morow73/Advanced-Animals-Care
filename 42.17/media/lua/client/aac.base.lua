@@ -1,53 +1,66 @@
 require "ISUI/ISToolTip"
-require "ISUI/ISRichTextPanel"
 
 AAC = AAC or {}
-AAC.BASE = AAC.BASE or {}
 
 local OriginalZoneUIRender
 local OriginalZoneUIClose
 local OriginalAnimalsPanelRender
 local OriginalAnimalsPanelRightMouseUp
-local AnimalTooltip = nil
+local CurrentAnimalTooltip = nil
 local ContextMenuOpen = false
 local SelectedAnimals = nil
+local TextManager = getTextManager()
 
 ---HighlightAnimal
 ---@param animal IsoAnimal | IsoDeadBody
 ---@param playerNum integer
 ---@param isdead boolean
-local function HighlightAnimal(animal, playerNum, isdead)
+---@param status table | nil
+local function HighlightAnimal(animal, playerNum, isdead, status)
     if not animal or not playerNum then return end
 
     local color = nil
-    local basecolor, deadcolor, warningcolor, mouseovercolor, pregnancycolor = AAC.UTILS.GetColorOptions()
+    local deadcolor, warningcolor, mouseovercolor, pregnancycolor = AAC.UTILS.GetColorOptions()
 
     if isdead then
         color = { r = deadcolor.r, g = deadcolor.g, b = deadcolor.b, a = deadcolor.a }
     elseif SelectedAnimals and SelectedAnimals == animal then
         color = { r = mouseovercolor.r, g = mouseovercolor.g, b = mouseovercolor.b, a = mouseovercolor.a }
     else
-        local stress = AAC.UTILS.Round(animal:getStress(), 2)
-        local health = animal:getHealth() * 100
-        local hunger = AAC.UTILS.Round(animal:getHunger(), 2)
-        local thirst = AAC.UTILS.Round(animal:getThirst(), 2)
-        local pregnancy = animal:getData():isPregnant()
+        if not status then return end
 
-        if (stress >= 25.0 or hunger > 0.10 or thirst > 0.10 or health < 80.0) then
+        local stress = status.stress
+        local health = status.health
+        local hunger = status.hunger
+        local thirst = status.thirst
+        local pregnancy = status.pregnancy
+
+        if (stress >= 25.0 or hunger > 0.25 or thirst > 0.25 or health < 80.0) then
             color = { r = warningcolor.r, g = warningcolor.g, b = warningcolor.b, a = warningcolor.a }
         elseif pregnancy then
             color = { r = pregnancycolor.r, g = pregnancycolor.g, b = pregnancycolor.b, a = pregnancycolor.a }
-        else
-            color = { r = basecolor.r, g = basecolor.g, b = basecolor.b, a = basecolor.a }
         end
     end
 
     if color then
-        animal:setOutlineHighlight(playerNum, true)
         animal:setOutlineHighlightCol(playerNum, color.r, color.g, color.b, color.a)
         animal:setOutlineHlAttached(playerNum, true)
+        animal:setOutlineHighlight(playerNum, true)
         animal:setOutlineThickness(color.a)
     end
+end
+
+---return status for animal.
+---@param animal IsoAnimal
+---@return table
+local function GetAnimalStatus(animal)
+    local stress = AAC.UTILS.Round(animal:getStress(), 2)
+    local health = animal:getHealth() * 100
+    local hunger = AAC.UTILS.Round(animal:getHunger(), 2)
+    local thirst = AAC.UTILS.Round(animal:getThirst(), 2)
+    local pregnancy = animal:getData():isPregnant()
+
+    return { stress = stress, health = health, hunger = hunger, thirst = thirst, pregnancy = pregnancy }
 end
 
 ---@param ui table
@@ -60,14 +73,16 @@ local function GetAnimalsInZone(ui)
     if animals then
         for i = 1, animals:size() do
             local animal = animals:get(i - 1)
-            HighlightAnimal(animal, playerNum, false)
+            local status = GetAnimalStatus(animal)
+
+            HighlightAnimal(animal, playerNum, false, status)
         end
     end
 
     if deadbody then
         for i = 1, deadbody:size() do
             local corpse = deadbody:get(i - 1)
-            HighlightAnimal(corpse, playerNum, true)
+            HighlightAnimal(corpse, playerNum, true, nil)
         end
     end
 end
@@ -172,10 +187,10 @@ local function GetAnimalTooltipText(animal)
     local str = ""
 
     str = str ..
-        AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_Stress"), stress, false, nil, { r = 0.7, g = 0.9, b = 0.7 })
+        AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_Stress"), stress, false, nil, { r = 0.8, g = 0.85, b = 1 })
 
     str = str ..
-        AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_Health"), health, false, nil, { r = 0.8, g = 0.9, b = 0.8 })
+        AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_Health"), health, false, nil, { r = 0.8, g = 0.85, b = 1 })
 
     if animal:isFemale() then
         local showPregnancyStage = checkboxOptions['showPregnancyStage']
@@ -183,6 +198,18 @@ local function GetAnimalTooltipText(animal)
         local showMatingSeason = checkboxOptions['showMatingSeason']
         local pregnancyStage = AAC.STAGE.GetAnimalPregnancyStage(animal)
         local milkStage = AAC.STAGE.GetAnimalMilkStage(animal)
+
+        str = str .. AAC.UTILS.FormatRichText(getText("UI_characreation_gender"), getText("IGUI_Animal_Female"), false, nil, { r = 0.8, g = 0.85, b = 1 })
+
+        if (showMatingSeason or skillLvl > 4) then
+            local matingStatus = AAC.STAGE.GetAnimalMatingStatus(animal)
+
+            if matingStatus then
+                str = str ..
+                    AAC.UTILS.FormatRichText(getText("IGUI_Animal_MatingSeason"), matingStatus, false, nil,
+                        { r = 0.8, g = 0.85, b = 1 })
+            end
+        end
 
         if pregnancyStage and pregnancyStage ~= "" then
             local showPregnancyTime = checkboxOptions['showPregnancyTime']
@@ -195,31 +222,24 @@ local function GetAnimalTooltipText(animal)
 
             if showPregnancyTime and pregnancyStage ~= getText("IGUI_No") then
                 local pregnancyTime = AAC.STAGE.GetAnimalPregnancyTime(animal)
-                str = str ..
-                    AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_Pregnancy_Time"), tostring(pregnancyTime), false,
-                        nil,
-                        { r = 0.8, g = 0.85, b = 1 })
+
+                if pregnancyTime then
+                    str = str ..
+                        AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_PregnancyTime"), nil, true, nil,
+                            { r = 0.8, g = 0.85, b = 1 }) .. " <LEFT> "
+                end
             end
         end
-
 
         if milkStage and milkStage ~= "" and (showMilkStage or skillLvl > 2) then
             str = str ..
                 AAC.UTILS.FormatRichText(getText("IGUI_AAC_Animal_Milk"), milkStage, false, nil,
-                    { r = 1, g = 0.9, b = 0.6 })
-        end
-
-        if (showMatingSeason or skillLvl > 4) then
-            local matingStatus = AAC.STAGE.GetAnimalMatingStatus(animal)
-
-            if matingStatus then
-                str = str ..
-                    AAC.UTILS.FormatRichText(getText("IGUI_Animal_MatingSeason"), matingStatus, false, nil,
-                        { r = 0.8, g = 0.85, b = 1 })
-            end
+                    { r = 0.8, g = 0.85, b = 1 })
         end
     else
         local showImpregnationReadiness = checkboxOptions['showImpregnationReadiness']
+
+        str = str .. AAC.UTILS.FormatRichText(getText("UI_characreation_gender"), getText("IGUI_Animal_Male"), false, nil, { r = 0.8, g = 0.85, b = 1 })
 
         if (showImpregnationReadiness or skillLvl > 3) then
             local matingStatus = AAC.STAGE.GetAnimalMaleImpregnateStatus(animal)
@@ -258,7 +278,7 @@ local function GetAnimalTooltipText(animal)
             end
 
             local calendarLine = table.concat(data, " <SPACE><SPACE>")
-            str = str .. " <LINE> <SETX:10> " .. calendarLine .. " <LEFT>"
+            str = str .. "<BR> <TEXT> <SETX:10> " .. calendarLine .. " <LEFT>"
         end
     end
 
@@ -280,6 +300,37 @@ end
 ---@return ISToolTip
 local function CreateAnimalTooltip()
     local tooltip = ISToolTip:new()
+    local panel = tooltip.descriptionPanel
+
+    function tooltip:renderContents()
+        panel.textDirty = true
+        ISToolTip.renderContents(self)
+
+        if SelectedAnimals then
+            if not SelectedAnimals:isFemale() or not SelectedAnimals:getData():isPregnant() then return end
+
+            local progress = AAC.STAGE.GetAnimalPregnancyTime(SelectedAnimals)
+
+            if progress and progress >= 0.10 then
+                local font = ISToolTip.GetFont()
+                local lineH = TextManager:getFontFromEnum(font):getLineHeight()
+                local textW = TextManager:MeasureStringX(font, getText("IGUI_AAC_Animal_PregnancyTime"))
+                local x, y, w = 20, 0, math.max(120, 30 + textW + 20)
+                local value = math.max(1, math.floor(w * math.min(progress, 1)))
+
+                for i, line in ipairs(panel.lines) do
+                    if line:find(getText("IGUI_AAC_Animal_PregnancyTime"), 1, true) then
+                        y = panel.lineY[i] + panel.marginTop + lineH
+                        break
+                    end
+                end
+
+                self:drawRect(x - 1, y, w + 2, 5, 1.0, 0.25, 0.25, 0.25)
+                self:drawRect(x, y, value, 3, 1.0, 0.8, 1.0, 0.8)
+                self:drawRect(x + value, y, math.max(0, w - value), 3, 1.0, 0.5, 0.5, 0.5)
+            end
+        end
+    end
 
     tooltip:initialise()
     tooltip:instantiate()
@@ -290,6 +341,39 @@ local function CreateAnimalTooltip()
     tooltip:setVisible(false)
 
     return tooltip
+end
+
+---hide current animal tooltip.
+local function HideCurrentAnimalTooltip()
+    if CurrentAnimalTooltip then
+        CurrentAnimalTooltip:setVisible(false)
+        CurrentAnimalTooltip = nil
+    end
+end
+
+---show current animal tooltip.
+---@param button ISButton
+---@param animal IsoAnimal
+---@param owner ISUIElement
+local function ShowAnimalTooltip(button, animal, owner)
+    if not button or not animal then
+        HideCurrentAnimalTooltip()
+        return
+    end
+
+    if not CurrentAnimalTooltip then
+        CurrentAnimalTooltip = CreateAnimalTooltip()
+    end
+
+    local description = GetAnimalTooltipText(animal)
+
+    if CurrentAnimalTooltip.description ~= description then
+        CurrentAnimalTooltip:setDescription(description)
+    end
+
+    CurrentAnimalTooltip:setOwner(owner)
+    CurrentAnimalTooltip:setAlwaysOnTop(true)
+    CurrentAnimalTooltip:setVisible(true)
 end
 
 local function BasePanel()
@@ -313,34 +397,20 @@ local function BasePanel()
                 SelectedAnimals = animal
 
                 if not button or not animal or isBody then
-                    if AnimalTooltip then
-                        AnimalTooltip:setVisible(false)
-                        AnimalTooltip:reset()
-                    end
-                else
-                    local description = GetAnimalTooltipText(animal)
-
-                    if not AnimalTooltip then
-                        AnimalTooltip = CreateAnimalTooltip()
-                    end
-
-                    AnimalTooltip:setOwner(self)
-                    AnimalTooltip:setDescription(description)
-                    AnimalTooltip:setAlwaysOnTop(true)
-                    AnimalTooltip:setVisible(true)
+                    HideCurrentAnimalTooltip()
+                    return
                 end
+
+                ShowAnimalTooltip(button, animal, self)
             else
-                if AnimalTooltip then
-                    AnimalTooltip:setVisible(false)
-                    AnimalTooltip:reset()
-                    AnimalTooltip = nil
-                end
+                HideCurrentAnimalTooltip()
             end
         end
     end
 
     if PanelInstance and not OriginalAnimalsPanelRightMouseUp then
         OriginalAnimalsPanelRightMouseUp = PanelInstance.onRightMouseUp
+
         function PanelInstance:onRightMouseUp(x, y)
             if OriginalAnimalsPanelRightMouseUp then
                 OriginalAnimalsPanelRightMouseUp(self, x, y)
@@ -359,6 +429,7 @@ local function BasePanel()
 
     if not OriginalZoneUIRender then
         OriginalZoneUIRender = AnimalZoneUI.render
+
         function AnimalZoneUI:render()
             OriginalZoneUIRender(self)
             GetAnimalsInZone(self)
@@ -367,6 +438,7 @@ local function BasePanel()
 
     if not OriginalZoneUIClose then
         OriginalZoneUIClose = AnimalZoneUI.close
+
         function AnimalZoneUI:close()
             if self.animalPanel and self.animalPanel.mouseOverAnimal then
                 self.animalPanel.mouseOverAnimal:setOutlineHighlight(self.playerNum, false)
@@ -377,6 +449,7 @@ local function BasePanel()
             ClearAnimalsInZone(self)
 
             SelectedAnimals, ContextMenuOpen = nil, false
+            HideCurrentAnimalTooltip()
 
             if OriginalZoneUIClose then
                 OriginalZoneUIClose(self)

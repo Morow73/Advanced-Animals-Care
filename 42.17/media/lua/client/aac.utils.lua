@@ -11,25 +11,18 @@ function AAC.UTILS.Round(number, decimals)
 end
 
 ---return color highlight options choice.
----@return table baseColor
 ---@return table deadColor
 ---@return table warningColor
 ---@return table mouseOverColor
 ---@return table pregnancyColor
 function AAC.UTILS.GetColorOptions()
-    local color_option = AAC.OPTIONS.USERS_OPTIONS['baseColor']:getValue()
     local color_option_dead = AAC.OPTIONS.USERS_OPTIONS['deadColor']:getValue()
     local color_option_warning = AAC.OPTIONS.USERS_OPTIONS['warningColor']:getValue()
     local color_option_mouseover = AAC.OPTIONS.USERS_OPTIONS['mouseOverColor']:getValue()
     local color_option_pregnancy = AAC.OPTIONS.USERS_OPTIONS['pregnancyColor']:getValue()
 
-    if color_option and color_option_dead and color_option_warning and color_option_mouseover and color_option_pregnancy then
+    if color_option_dead and color_option_warning and color_option_mouseover and color_option_pregnancy then
         return {
-            r = color_option.r,
-            g = color_option.g,
-            b = color_option.b,
-            a = color_option.a
-        }, {
             r = color_option_dead.r,
             g = color_option_dead.g,
             b = color_option_dead.b,
@@ -52,12 +45,15 @@ function AAC.UTILS.GetColorOptions()
         }
     end
 
-    return AAC.OPTIONS.DEFAULT_OPTIONS['baseColor'].color, AAC.OPTIONS.DEFAULT_OPTIONS['deadColor'].color, AAC.OPTIONS.DEFAULT_OPTIONS['warningColor'].color, AAC.OPTIONS.DEFAULT_OPTIONS['mouseOverColor'].color, AAC.OPTIONS.DEFAULT_OPTIONS['pregnancyColor'].color
+    return AAC.OPTIONS.DEFAULT_OPTIONS['deadColor'].color,
+        AAC.OPTIONS.DEFAULT_OPTIONS['warningColor'].color, AAC.OPTIONS.DEFAULT_OPTIONS['mouseOverColor'].color,
+        AAC.OPTIONS.DEFAULT_OPTIONS['pregnancyColor'].color
 end
 
 ---return checkbox options choice.
----@return table checkboxOptions
-function AAC.UTILS.GetCheckboxOptions()
+---@param option string | nil
+---@return table | boolean checkboxOptions
+function AAC.UTILS.GetCheckboxOptions(option)
     local checkbox_options = AAC.OPTIONS.USERS_OPTIONS['displayOptions']
 
     if not checkbox_options then
@@ -68,12 +64,16 @@ function AAC.UTILS.GetCheckboxOptions()
 
     for i = 1, #AAC.OPTIONS.DEFAULT_OPTIONS.DISPLAY, 1 do
         local id = AAC.OPTIONS.DEFAULT_OPTIONS.DISPLAY[i].id
+
+        if option and option == id then
+            return checkbox_options:getValue(i)
+        end
+
         values[id] = checkbox_options:getValue(i)
     end
 
     return values
 end
-
 
 ---format rich text
 ---@param key string
@@ -98,15 +98,15 @@ function AAC.UTILS.FormatRichText(key, value, center, size, color)
 
     if not value then
         if not center then
-            chain = "<TEXT> <SIZE:"..size.."> <RGB:"..string.format("%.2f,%.2f,%.2f", color.r, color.g, color.b).."> " .. key
+            chain = " <TEXT> <SIZE:" .. size .. "> <RGB:" .. string.format("%.2f,%.2f,%.2f", color.r, color.g, color.b) .. "> " .. key
         else
-            chain = "<TEXT> <CENTRE> <SIZE:"..size.."> <RGB:"..string.format("%.2f,%.2f,%.2f", color.r, color.g, color.b).."> " .. key
+            chain = " <TEXT> <CENTRE> <SIZE:" ..size .. "> <RGB:" .. string.format("%.2f,%.2f,%.2f", color.r, color.g, color.b) .. "> " .. key
         end
     else
         if center then
-            chain = "<TEXT> <CENTRE> <SIZE:"..size.."> <RGB:1,1,1>"..key.." <SPACE> : <SPACE><RGB:"..string.format("%.2f,%.2f,%.2f", color.r, color.g, color.b).."> " .. tostring(value) .. " <LINE>"
+            chain = " <TEXT> <CENTRE> <SIZE:" ..size .. "> <RGB:1,1,1> " .. key .." <SPACE> : <SPACE> <RGB:" .. string.format("%.2f,%.2f,%.2f", color.r, color.g, color.b) .. "> " .. tostring(value) .." <LINE> "
         else
-            chain = "<TEXT> <SIZE:"..size.."> <RGB:1,1,1>"..key.." <SPACE> : <SPACE><RGB:"..string.format("%.2f,%.2f,%.2f", color.r, color.g, color.b).."> " .. tostring(value) .. " <LINE>"
+            chain = " <TEXT> <SIZE:" ..size .. "> <RGB:1,1,1> " ..key .. " <SPACE> : <SPACE> <RGB:" .. string.format("%.2f,%.2f,%.2f", color.r, color.g, color.b) .. "> " .. tostring(value) .." <LINE> "
         end
     end
 
