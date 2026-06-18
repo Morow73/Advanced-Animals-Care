@@ -9,11 +9,11 @@ AAC.OPTIONS.DEFAULT_OPTIONS = {
         ['pregnancyColor'] = { id = "pregnancyColor", description = "IGUI_AAC_Pregnancy_Animal_Color", color = { r = 1.0, g = 0.75, b = 0.80, a = 0.85 } }
     },
     DISPLAY = {
-        { id = "showPregnancyStage", description = "IGUI_AAC_Show_Pregnancy_Stage", value = true },
-        { id = "showMilkStage", description = "IGUI_AAC_Show_Milk_Stage", value = true },
-        { id = "showMatingSeason", description = "IGUI_AAC_Show_Mating_Season", value = true },
-        { id = "showImpregnationReadiness", description = "IGUI_AAC_Show_Impregnation_Readiness", value = true },
-        { id = "showPregnancyTime", description = "IGUI_AAC_Show_Pregnancy_Time", value = true },
+        { id = "showPregnancyStage", description = "IGUI_AAC_Show_Pregnancy_Stage", value = false },
+        { id = "showMilkStage", description = "IGUI_AAC_Show_Milk_Stage", value = false },
+        { id = "showMatingSeason", description = "IGUI_AAC_Show_Mating_Season", value = false },
+        { id = "showImpregnationReadiness", description = "IGUI_AAC_Show_Impregnation_Readiness", value = false },
+        { id = "showPregnancyTime", description = "IGUI_AAC_Show_Pregnancy_Time", value = false },
     }
 }
 

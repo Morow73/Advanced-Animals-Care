@@ -1,6 +1,6 @@
 {
-    "IGUI_AAC_Animal_CanBePet": "Peut être caliné",
-    "IGUI_AAC_Animal_CannotBePet": "Ne peut pas être caliné",
+    "IGUI_AAC_Animal_CanBePet": "Peut être caressé",
+    "IGUI_AAC_Animal_CannotBePet": "Ne peut pas être caressé",
     "IGUI_AAC_Dead_Animal_Color": "Couleur du highlight des animaux morts.",
     "IGUI_AAC_Warning_Animal_Color": "Couleur du highlight des animaux nécessitant de l'attention (stress, santé ...).",
     "IGUI_AAC_Mouse_Over_Animal_Color": "Couleur du highlight des animaux survolés par la souris.",
