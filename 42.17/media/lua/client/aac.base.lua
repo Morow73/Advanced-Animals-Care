@@ -10,6 +10,10 @@ local state = {
     contextMenuState = nil,
 }
 
+---wrapper for hooking methods
+---@param instance ISBaseObject
+---@param methodName string
+---@param wrapper function
 local function HookMethod(instance, methodName, wrapper)
     if not instance or instance[methodName] == wrapper then return end
 
@@ -20,6 +24,10 @@ local function HookMethod(instance, methodName, wrapper)
     end
 end
 
+---return button and animal from the ranch panel based on mouse position
+---@param panel table
+---@return nil|ISButton
+---@return nil|IsoAnimal
 local function GetAnimalFromButton(panel)
     if not panel or not panel.ui or not panel.ui.animalbuttons or not panel.ui.itemHgt or panel.ui.itemHgt <= 0 then
         return nil, nil
@@ -36,6 +44,7 @@ local function GetAnimalFromButton(panel)
     return button, button.animal
 end
 
+---highlight animal
 ---@param animal IsoAnimal | IsoDeadBody
 ---@param playerNum integer
 ---@param isdead boolean
@@ -66,6 +75,7 @@ local function HighlightAnimal(animal, playerNum, isdead, status)
     end
 end
 
+---return animal status
 ---@param animal IsoAnimal
 ---@return table
 local function GetAnimalStatus(animal)
@@ -106,6 +116,7 @@ local function GetAnimalsInZone(ui)
     end
 end
 
+---clear animal highlight
 ---@param ui table
 local function ClearAnimalsInZone(ui)
     if not ui or not ui.zone then return end
@@ -128,6 +139,7 @@ local function ClearAnimalsInZone(ui)
     end
 end
 
+---hide current tooltip
 local function HideCurrentAnimalTooltip()
     if state.CurrentAnimalTooltip then
         state.CurrentAnimalTooltip:setVisible(false)
@@ -136,6 +148,9 @@ local function HideCurrentAnimalTooltip()
     state.SelectedAnimals = nil
 end
 
+---format text for tooltip
+---@param animal IsoAnimal
+---@param playerNum integer
 local function SetAnimalTooltipText(animal, playerNum)
     if not state.CurrentAnimalTooltip or not animal then return end
 
@@ -220,6 +235,7 @@ local function ShowAnimalTooltip(button, animal, owner)
 
     if not state.CurrentAnimalTooltip then
         state.CurrentAnimalTooltip = AAC.TOOLTIPS.AnimalToolTip:new()
+
         state.CurrentAnimalTooltip:initialise()
         state.CurrentAnimalTooltip:instantiate()
         state.CurrentAnimalTooltip.followMouse = true
@@ -237,6 +253,10 @@ local function ShowAnimalTooltip(button, animal, owner)
     state.CurrentAnimalTooltip:setVisible(true)
 end
 
+---animal context menu on right click
+---@param playerNum integer
+---@param animal IsoAnimal|IsoDeadBody
+---@param isBody boolean
 local function AnimalsContextMenu(playerNum, animal, isBody)
     if not playerNum or not animal then return end
     if not AnimalContextMenu then return end
@@ -247,8 +267,13 @@ local function AnimalsContextMenu(playerNum, animal, isBody)
     if not context then return end
 
     if isBody then
+        ---@cast animal IsoDeadBody
         AnimalContextMenu.doAnimalBodyMenu(context, playerNum, animal)
+    elseif animal:getHutch() then
+        ---@cast animal IsoAnimal
+        context:addOption(getText("ContextMenu_AnimalInfo"), animal, AnimalContextMenu.onAnimalInfo, animal, playerNum)
     else
+        ---@cast animal IsoAnimal
         AnimalContextMenu.doMenu(playerNum, context, animal)
     end
 

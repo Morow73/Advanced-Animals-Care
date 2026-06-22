@@ -38,3 +38,7 @@
 - Fix don't show tooltip after when open animal panel info.
 - Minor code improve.
 [ ------ ]
+
+[22/06/2026]
+- Fix error for access on animal info if the animal is in hutch.
+[ ------ ]

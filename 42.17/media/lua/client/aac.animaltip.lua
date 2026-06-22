@@ -235,7 +235,7 @@ function AACAnimalToolTip:doLayout()
     end
 end
 
-function AAC.TOOLTIPS.AnimalToolTip:renderContents()
+function AACAnimalToolTip:renderContents()
     ISToolTip.renderContents(self)
 
     local font = ISToolTip.GetFont()
